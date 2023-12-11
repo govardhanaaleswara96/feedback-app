@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+function App(){
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    const tittle = 'Block Post';
+    const para = 'I am block post component';
+    const arr = [
+        {id:1,'name':'blog 1'},
+        {id:2,'name':'blog 2'},
+        {id:3,'name':'blog 3'},
+    ];
+    const loading = false;
+    const showComments = true;
+    const comments = (
+        <div className="comments">
+        <h3>posts:({arr.length})</h3>
+        <ul>
+        {arr.map((post,index)=>
+            <li key={index}> {post.name}</li>
+            )}     
+        </ul>
     </div>
-  );
+    )
+    if(loading) return (<h1>Loading...</h1>)
+    return(
+        <div className="container">
+        <h1>{tittle.toUpperCase()}</h1>
+        <p>{para}</p>
+         {showComments && comments}
+        </div>
+    )
 }
 
 export default App;
